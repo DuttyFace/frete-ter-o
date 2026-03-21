@@ -234,11 +234,19 @@
 
       // Redirecionar para link externo ao clicar em "PAGAR FRETE"
       const btn = document.getElementById('btnPagarFrete');
+      
       if (btn) {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          // SUBSTITUA PELO SEU LINK EXTERNO:
-          window.location.href = "https://www.pagamentos-seguro.link/checkout/9dd68ba3-12a8-4c87-84e8-74f116da9911";
+      
+          const baseUrl = "https://www.pagamentos-seguro.link/checkout/9dd68ba3-12a8-4c87-84e8-74f116da9911";
+          const params = window.location.search;
+      
+          const finalUrl = params
+            ? baseUrl + params
+            : baseUrl;
+      
+          window.location.href = finalUrl;
         });
       }
     });
